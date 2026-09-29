@@ -1,7 +1,7 @@
 const products = document.querySelector(".card-grid");
 
 
-// Get 10 Pokémon from the API
+// fetch to get 10 Pokémon only from the API
 
 fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
     .then((res) => res.json())
@@ -9,7 +9,7 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
 
         data.results.forEach((pokemon) => {
 
-            // Get detailed information about each Pokémon
+            // this is to get information about each Pokémon
 
             fetch(pokemon.url)
                 .then((res) => res.json())
@@ -20,7 +20,7 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
                         .join(" / ");
 
 
-                    // Create the Pokémon card
+                    // here is to create the Pokémon card
 
                     products.innerHTML += `
                         <div
@@ -47,7 +47,7 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
                             </p>
 
 
-                            <!-- ADD TO COLLECTION BUTTON -->
+                            <!--here is add to collection button -->
 
                             <button
                                 type="button"
@@ -72,7 +72,7 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
     });
 
 
-// ADD POKÉMON TO COLLECTION
+// here add pokemon to collection
 
 document.addEventListener("click", (event) => {
 
@@ -81,13 +81,13 @@ document.addEventListener("click", (event) => {
         const pokemonId = event.target.dataset.id;
 
 
-        // Get the existing collection
+        // here get the existing collection
 
         let collection =
             JSON.parse(localStorage.getItem("collection")) || [];
 
 
-        // Add Pokémon if it is not already in the collection
+        // here add Pokémon if it is not already in the collection
 
         if (!collection.includes(pokemonId)) {
 
